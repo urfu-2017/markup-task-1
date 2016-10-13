@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "test": "npm run lint && mocha ./node_modules/html-tests/task-stub/test && mocha test/*.spec.js",
-    "lint": "stylelint *.css **/*.css && htmllint *.html"
+    "lint": "stylelint *.css **/*.css && html-validator --file index.html --verbose && htmllint *.html"
   },
   "dependencies": {
     "html-tests": "latest",
