@@ -1,17 +1,15 @@
 /* global describe, it, global */
 
-'use strict';
-
 require('should');
-var fs = require('fs');
-var files = fs.readdirSync('.');
+const fs = require('fs');
+let files = fs.readdirSync('.');
 
 files = files.filter(file => {
     return fs.statSync(file).isFile() && /\.html$/.test(file);
 });
 
-describe('Кол-во html файлов', function(){
-    it('Должен быть один html-файл в проекте', function () {
+describe('Кол-во html файлов', () => {
+    it('Должен быть один html-файл в проекте', () => {
         files.length.should.be.eql(1);
     });
 });

@@ -1,14 +1,14 @@
-'use strict';
-var html = require('./getHtml');
+const html = require('./getHtml');
 
-var tags = [];
+const commonTags = ['html', 'head', 'meta', 'title', 'link', 'body'];
+const foundTags = [];
 
-html.match(/\<\s*[a-z]+/ig).forEach(function(tag){
+html.match(/\<\s*[a-z]+/ig).forEach(tag => {
     tag = tag.replace('<', '');
 
-    if (tags.indexOf(tag) === -1) {
-        tags.push(tag);
+    if (commonTags.indexOf(tag) === -1 && foundTags.indexOf(tag) === -1) {
+        foundTags.push(tag);
     }
 });
 
-module.exports = tags;
+module.exports = foundTags;
